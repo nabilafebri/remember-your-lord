@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.dashboard;
+package id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.read;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.R;
 
-public class DashboardFragment extends Fragment {
+public class ReadFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
+    private ReadViewModel readViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel.class);
+        readViewModel =
+                ViewModelProviders.of(this).get(ReadViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        readViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

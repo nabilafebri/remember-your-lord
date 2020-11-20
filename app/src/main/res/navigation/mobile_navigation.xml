@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:id="@+id/navigation_read"
+        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.read.ReadFragment"
+        android:label="@string/title_read"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/navigation_faves"
+        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.faves.FavesFragment"
+        android:label="@string/title_faves"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
