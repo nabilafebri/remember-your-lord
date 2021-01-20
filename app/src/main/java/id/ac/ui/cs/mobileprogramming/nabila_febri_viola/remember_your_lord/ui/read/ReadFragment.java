@@ -13,23 +13,35 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.R;
+import id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.model.QuranText;
 
 public class ReadFragment extends Fragment {
 
+    private QuranTextViewModel quranTextViewModel;
     private ReadViewModel readViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        readViewModel =
-                ViewModelProviders.of(this).get(ReadViewModel.class);
+
+        quranTextViewModel = ViewModelProviders.of(this).get(QuranTextViewModel.class);
+        readViewModel = ViewModelProviders.of(this).get(ReadViewModel.class);
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
-        readViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+
+//        readViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
+
+        quranTextViewModel.getQuranText(10).observe(getViewLifecycleOwner(), new Observer<QuranText>() {
             @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+            public void onChanged(@Nullable QuranText quranText) {
+                textView.setText(quranText.getText());
             }
         });
+
         return root;
     }
 }
