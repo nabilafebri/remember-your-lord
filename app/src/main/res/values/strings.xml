@@ -3,4 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_read">Read</string>
     <string name="title_faves">Faves</string>
+    <string name="card_sholat">Prayer Schedule</string>
+    <string name="card_aktivitas">Daily Activity</string>
+    <string name="card_kajian">Study Schedule</string>
+    <string name="card_catatan">Study Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

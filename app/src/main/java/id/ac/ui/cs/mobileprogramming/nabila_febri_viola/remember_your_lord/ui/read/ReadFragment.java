@@ -25,7 +25,7 @@ public class ReadFragment extends Fragment {
 
         quranTextViewModel = ViewModelProviders.of(this).get(QuranTextViewModel.class);
         readViewModel = ViewModelProviders.of(this).get(ReadViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_read, container, false);
         final TextView textView = root.findViewById(R.id.text_dashboard);
 
 //        readViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

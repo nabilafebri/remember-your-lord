@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Remember Your Lord</string>
+    <string name="title_home">Home</string>
+    <string name="title_read">Baca</string>
+    <string name="title_faves">Suka</string>
+    <string name="card_sholat">Jadwal Sholat</string>
+    <string name="card_aktivitas">Aktivitas Harian</string>
+    <string name="card_kajian">Jadwal Kajian</string>
+    <string name="card_catatan">Catatan Kajian</string>
+</resources>

@@ -22,7 +22,7 @@ public class FavesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         favesViewModel =
                 ViewModelProviders.of(this).get(FavesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View root = inflater.inflate(R.layout.fragment_faves, container, false);
         final TextView textView = root.findViewById(R.id.text_notifications);
         favesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

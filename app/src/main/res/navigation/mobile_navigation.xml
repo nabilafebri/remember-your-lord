@@ -15,11 +15,11 @@
         android:id="@+id/navigation_read"
         android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.read.ReadFragment"
         android:label="@string/title_read"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_read" />
 
     <fragment
         android:id="@+id/navigation_faves"
         android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.faves.FavesFragment"
         android:label="@string/title_faves"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_faves" />
 </navigation>
