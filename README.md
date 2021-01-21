@@ -10,5 +10,6 @@ sudah bisa ditampilkan, tapi baru uji coba saja menampilkannya (UI-nya belum sel
 - set value string cuma pakai locale in (Bahasa).
 - implementasi multiple layout-nya cuma switch layout waktu ganti orientasi, tapi ini masih ada bug-nya. 
 Jadi, waktu orientasinya diganti, perlu akses fragmen lain di bottom navigasi dulu, baru layoutnya bisa terganti kalau balik ke fragmen sebelumnya.
+Asumsi saya karena fragmen tidak bisa di-reinflate waktu orientasinya berganti.
 - hanya logo saja yang memiliki banyak jenis drawable.
 - sebenarnya mau mengimplementasikan media player untuk backgroundtask, notifikasi tetap, dan async serta meminta akses gps atau location permission untuk akses API. tapi hal-hal yang ada di atas ini belum terselesaikan.
