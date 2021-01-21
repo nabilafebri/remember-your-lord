@@ -1,5 +1,6 @@
 "# remember-your-lord" 
-Link Mock-Up Awal: https://www.figma.com/file/VGTBLh4Wcu8bPCO5lJDaNd/TKTPL?node-id=0%3A1
+
+- Link Mock-Up Awal: https://www.figma.com/file/VGTBLh4Wcu8bPCO5lJDaNd/TKTPL?node-id=0%3A1
 
 Komen:
 - belum ada yang selesai. Rencananya mau menyelasaikan penambahan aktivitas, tapi pemanggilan fragmen dari fragmennya masih salah.
@@ -9,3 +10,5 @@ sudah bisa ditampilkan, tapi baru uji coba saja menampilkannya (UI-nya belum sel
 - set value string cuma pakai locale in (Bahasa).
 - implementasi multiple layout-nya cuma switch layout waktu ganti orientasi, tapi ini masih ada bug-nya. 
 Jadi, waktu orientasinya diganti, perlu akses fragmen lain di bottom navigasi dulu, baru layoutnya bisa terganti kalau balik ke fragmen sebelumnya.
+- hanya logo saja yang memiliki banyak jenis drawable.
+- sebenarnya mau mengimplementasikan media player untuk backgroundtask, notifikasi tetap, dan async serta meminta akses gps atau location permission untuk akses API. tapi hal-hal yang ada di atas ini belum terselesaikan.
