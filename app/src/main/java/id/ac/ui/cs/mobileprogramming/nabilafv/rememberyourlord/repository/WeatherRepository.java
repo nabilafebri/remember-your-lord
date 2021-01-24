@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import java.util.UUID;
 
@@ -23,6 +24,7 @@ public class WeatherRepository implements WeatherRepositoryInterface {
     }
 
     public Response<WeatherResponse> getWeather(double lat, double lon) {
+        Log.d("tees","masuk repo weather");
         return apiHelper.getWeather(lat, lon);
     }
 

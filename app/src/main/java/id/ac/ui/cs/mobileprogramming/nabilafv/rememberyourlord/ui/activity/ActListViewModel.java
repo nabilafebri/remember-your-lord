@@ -23,6 +23,8 @@ public class ActListViewModel extends ViewModel {
         getAllUndoneActivityThread();
     }
 
+    public ActListViewModel(){}
+
     private void getAllUndoneActivityThread() {
         new Thread(new Runnable() {
             public void run() {

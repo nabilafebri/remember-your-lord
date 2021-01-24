@@ -1,8 +1,11 @@
 package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.weather;
 
+import androidx.hilt.Assisted;
 import androidx.hilt.lifecycle.ViewModelInject;
+import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.SavedStateHandle;
 import androidx.lifecycle.ViewModel;
 
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.WeatherResponse;
@@ -11,7 +14,7 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.utils.State;
 import retrofit2.Response;
 
 public class WeatherViewModel extends ViewModel {
-    private WeatherRepository weatherRepository;
+    private final WeatherRepository weatherRepository;
     private MutableLiveData<State<WeatherResponse>> weatherResponse = new MutableLiveData<State<WeatherResponse>>();
     private MutableLiveData<Boolean> isConnectedToNetwork = new MutableLiveData<Boolean>();
 

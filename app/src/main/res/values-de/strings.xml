@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Remember Your Lord</string>
+    <string name="title_home">Haus</string>
+    <string name="title_read">Lesen</string>
+    <string name="title_faves">Suka</string>
+    <string name="title_weather">Heute Wetter</string>
+    <string name="act_title">Titel</string>
+    <string name="act_desc">Beschreibung</string>
+    <string name="act_date">Datum</string>
+    <string name="btn_add_act">Aktivität hinzufügen</string>
+    <string name="add_act_success">Aktivität wurde hinzugefügt</string>
+    <string name="weather_warning">Keine Verbindung, kann keine Wetter- und Standortdaten abrufen</string>
+    <string name="weather_location">Deine aktuelle Position: %1$s</string>
+    <string name="weather_temperature">Aktuelle Temperatur: %1$fF</string>
+    <string name="weather_failed">Wetterdaten können nicht abgerufen werden</string>
+    <string name="card_sholat">Gebetsplan</string>
+    <string name="card_aktivitas">Tägliche Aktivitäten</string>
+    <string name="card_kajian">Studienplan</string>
+    <string name="card_catatan">Studiennotizen</string>
+</resources>

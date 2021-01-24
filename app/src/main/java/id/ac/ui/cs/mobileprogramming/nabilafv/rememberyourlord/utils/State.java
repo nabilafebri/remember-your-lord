@@ -17,21 +17,21 @@ public class State<T> {
         return new Initialize<T>();
     }
 
-    class Loading<T> extends State{};
+    public static class Loading<T> extends State{};
 
-    class Success<T> extends State{
+    public static class Success<T> extends State{
         public T data;
-        Success(T data){
+        public Success(T data){
             this.data = data;
         };
     };
 
-    class Failed<T> extends State {
+    public static class Failed<T> extends State {
         public Throwable throwable;
-        Failed(Throwable throwable) {
+        public Failed(Throwable throwable) {
             this.throwable = throwable;
         }
     }
 
-    class Initialize<T> extends State{};
+    public static class Initialize<T> extends State{};
 }

@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord">
+    package="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord">
+
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.RememberYourLordApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/SplashTheme">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.gle.GLES3JNIActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:label="@string/app_name">
             <intent-filter>
@@ -19,6 +27,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.MainActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:label="@string/app_name" />
+        <activity android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.activity.AddActActivity" />
+        <receiver android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.receiver.NotificationReceiver" />
     </application>
 
 </manifest>

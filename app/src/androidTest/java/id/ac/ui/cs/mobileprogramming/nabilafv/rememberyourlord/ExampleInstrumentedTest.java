@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord;
+package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord;
 
 import android.content.Context;
 

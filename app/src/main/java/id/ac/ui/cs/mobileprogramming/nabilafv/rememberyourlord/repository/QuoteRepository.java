@@ -37,5 +37,5 @@ public class QuoteRepository implements QuoteRepositoryInterface {
         }
     }
 
-    public LiveData<Quote> getQuote() {return quoteDao.getQuote();}
+    public Quote getQuote() {return quoteDao.getQuote();}
 }

@@ -50,7 +50,11 @@ public class ActListAdapter extends RecyclerView.Adapter<ActListAdapter.ActListV
 
     @Override
     public int getItemCount() {
-        return activities.size();
+        if (activities == null) {
+            return 0;
+        } else {
+            return activities.size();
+        }
     }
 
     public class ActListViewHolder extends RecyclerView.ViewHolder {

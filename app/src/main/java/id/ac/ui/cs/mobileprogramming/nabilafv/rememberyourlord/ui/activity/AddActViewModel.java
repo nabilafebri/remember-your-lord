@@ -23,6 +23,8 @@ public class AddActViewModel extends ViewModel {
         isDatePicked.setValue(false);
     }
 
+    public AddActViewModel(){}
+
     public LiveData<State<Activity>> getActivity() {
         return activity;
     }

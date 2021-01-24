@@ -3,6 +3,16 @@
     <string name="title_home">Home</string>
     <string name="title_read">Baca</string>
     <string name="title_faves">Suka</string>
+    <string name="title_weather">Cuaca Hari Ini</string>
+    <string name="act_title">Nama</string>
+    <string name="act_desc">Deskripsi</string>
+    <string name="act_date">Waktu</string>
+    <string name="btn_add_act">Tambah aktivitas</string>
+    <string name="add_act_success">Aktivitas telah ditambah</string>
+    <string name="weather_warning">Tidak ada koneksi, tidak dapat mengambil data cuaca dan lokasi</string>
+    <string name="weather_location">Lokasi saat ini: %1$s</string>
+    <string name="weather_temperature">Cuaca saat ini: %1$fF</string>
+    <string name="weather_failed">Tidak dapat mengambil data cuaca</string>
     <string name="card_sholat">Jadwal Sholat</string>
     <string name="card_aktivitas">Aktivitas Harian</string>
     <string name="card_kajian">Jadwal Kajian</string>

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.home.HomeFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_read"
-        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.read.ReadFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.read.ReadFragment"
         android:label="@string/title_read"
         tools:layout="@layout/fragment_read" />
 
     <fragment
         android:id="@+id/navigation_faves"
-        android:name="id.ac.ui.cs.mobileprogramming.nabila_febri_viola.remember_your_lord.ui.faves.FavesFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.faves.FavesFragment"
         android:label="@string/title_faves"
         tools:layout="@layout/fragment_faves" />
 </navigation>

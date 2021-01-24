@@ -15,5 +15,5 @@ public interface QuoteDao {
     void insertQuote(Quote quote);
 
     @Query("SELECT * FROM quote LIMIT 1")
-    LiveData<Quote> getQuote();
+    Quote getQuote();
 }
