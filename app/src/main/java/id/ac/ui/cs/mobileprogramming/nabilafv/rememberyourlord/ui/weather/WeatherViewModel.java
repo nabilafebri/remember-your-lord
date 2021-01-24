@@ -14,7 +14,7 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.utils.State;
 import retrofit2.Response;
 
 public class WeatherViewModel extends ViewModel {
-    private final WeatherRepository weatherRepository;
+    private WeatherRepository weatherRepository;
     private MutableLiveData<State<WeatherResponse>> weatherResponse = new MutableLiveData<State<WeatherResponse>>();
     private MutableLiveData<Boolean> isConnectedToNetwork = new MutableLiveData<Boolean>();
 
@@ -23,6 +23,8 @@ public class WeatherViewModel extends ViewModel {
         this.weatherRepository = weatherRepository;
         this.weatherResponse.postValue(new State<WeatherResponse>().init());
     }
+
+    public WeatherViewModel() {}
 
     public LiveData<State<WeatherResponse>> getWeatherResponse() {
         return weatherResponse;

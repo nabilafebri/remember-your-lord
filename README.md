@@ -1,15 +1,52 @@
 "# remember-your-lord" 
 
 - Link Mock-Up Awal: https://www.figma.com/file/VGTBLh4Wcu8bPCO5lJDaNd/TKTPL?node-id=0%3A1
+- Injeksinya gagal, aplikasi crash
 
-Komen:
-- belum ada yang selesai. Rencananya mau menyelasaikan penambahan aktivitas, tapi pemanggilan fragmen dari fragmennya masih salah.
-Ada bagian di fragmen yang muncul, tapi recyclerviewnya masih salah. jadi UI-nya belum kelar ...
-- data yang available dari database online dengan tipe sql, sudah diconvert ke sqlite, lalu sudah diconvert ke room. Data ini sudah bisa diakses,
-sudah bisa ditampilkan, tapi baru uji coba saja menampilkannya (UI-nya belum selesai).
-- set value string cuma pakai locale in (Bahasa).
-- implementasi multiple layout-nya cuma switch layout waktu ganti orientasi, tapi ini masih ada bug-nya. 
-Jadi, waktu orientasinya diganti, perlu akses fragmen lain di bottom navigasi dulu, baru layoutnya bisa terganti kalau balik ke fragmen sebelumnya.
-Asumsi saya karena fragmen tidak bisa di-reinflate waktu orientasinya berganti.
-- hanya logo saja yang memiliki banyak jenis drawable.
-- sebenarnya mau mengimplementasikan media player untuk backgroundtask, notifikasi tetap, dan async serta meminta akses gps atau location permission untuk akses API. tapi hal-hal yang ada di atas ini belum terselesaikan.
+- Stack Android Framework Standard
+- Activity untuk menambahkan Activity. Activity berisi informasi cuaca dan List Activity yang berasal dari WeatherFragment dan ActListFragment
+
+- Service & Remote Method
+- Alarm Manager untuk trigger notifikasi setiap hari, Location Manager untuk mendapatkan informasi cuaca, mengambil informasi cuaca dari API Weather
+
+- Content Provider
+- Menyimpan Activity pada kalender lokal
+
+- Broadcast Receiver
+- Menampilkan notifikasi setelah Alarm Manager selesai
+
+- Async Task
+- Mengambil data activity setiap hari
+
+- Multi Layout
+- Terdapat dua layout berbeda untuk orientation horizontal dan vertical untuk menampilkan Activity
+
+- Multi Language
+- Menggunakan string resource Bahasa Indonesia dan Bahasa Jerman. Defaultnya Bahasa Inggris
+
+- MVVM
+- Menggunakan ViewModel untuk Activity dan informasi cuaca. Mencoba menggunakan Hilt, tapi gagal
+
+- Assets
+- Menggunakan string resource pada strings.xml dan custom icon launcher
+
+- Data Persistance
+- Terdapat entity Activity, Weather, QuranText, En Translation, Id Translation pada Room Database
+
+- Runtime Permission
+- Request permission: akses lokasi (memanggil API) dan calendar (menambahkan Activity)
+
+- JNI
+- Mengunakan fungsi native C untuk animasi OpenGL pada splash screen
+
+- OpenGL
+- Menampilkan animasi OpenGL pada splash screen
+
+- Connectivity Manager
+- Mengambil data cuaca hanya jika menggunakan Wifi
+
+- Service Background
+- Menampilkan Activity setiap hari meskipun aplikasi sedang tidak dibuka
+
+- Notifikasi
+- Memberikan notifikasi Activity setiap hari
