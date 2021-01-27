@@ -12,13 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.R;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
     private ViewGroup container;
     private LinearLayout linearLayout;
     private View view;
@@ -30,9 +29,6 @@ public class HomeFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         this.container = container;
-
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
 
         int currentOrientation = getResources().getConfiguration().orientation;
         if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) {

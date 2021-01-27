@@ -9,9 +9,9 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.Activity;
 public interface ActivityRepositoryInterface {
     void insertActivity(String title, String description, long date);
 
-    List<Activity> getAllUndoneActivity();
+    LiveData<List<Activity>> getAllUndoneActivity();
 
-    List<Activity> getTodayActivity();
+    LiveData<List<Activity>> getTodayActivity();
 
     void updateActivity(String idAct);
 }

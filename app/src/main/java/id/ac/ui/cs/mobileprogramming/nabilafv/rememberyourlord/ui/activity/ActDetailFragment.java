@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import dagger.hilt.android.AndroidEntryPoint;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.R;
 
+@AndroidEntryPoint
 public class ActDetailFragment extends Fragment {
     private ActListViewModel actListViewModel;
 
@@ -28,7 +30,7 @@ public class ActDetailFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        actListViewModel = ViewModelProviders.of(this).get(ActListViewModel.class);
+        actListViewModel = new ViewModelProvider(requireActivity()).get(ActListViewModel.class);
         actListViewModel.getSelectedActivity().observe(getViewLifecycleOwner(), activity -> {
             TextView textViewTitle = view.findViewById(R.id.act_detail_title);
             textViewTitle.setText(activity.getTitle());

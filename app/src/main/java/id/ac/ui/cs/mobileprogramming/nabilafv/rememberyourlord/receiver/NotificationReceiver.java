@@ -40,7 +40,7 @@ public class NotificationReceiver extends HiltBroadcastReceiver {
 
             Thread thread = new Thread(new Runnable() {
                 public void run() {
-                    activityRepository.getTodayActivity().forEach((item) -> {
+                    activityRepository.getTodayActivity().getValue().forEach((item) -> {
                     if(item != null) {
                         Date date = new Date(item.getDate());
                         allActivity[0] += item.getTitle() + " - " + SimpleDateFormat.getTimeInstance().format(date);

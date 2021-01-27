@@ -8,20 +8,20 @@
     android:background="?android:windowBackground"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment_weather"
-        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.weather.WeatherFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fragment_weather"-->
+<!--        android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.weather.WeatherFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_activity"
         android:name="id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.activity.ActListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/fragment_weather" />
+        app:layout_constraintTop_toBottomOf="@id/layout_main_activity" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_activity"

@@ -1,8 +1,10 @@
 package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import java.util.Calendar;
 import java.util.List;
@@ -15,10 +17,12 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.Activity;
 
 public class ActivityRepository implements ActivityRepositoryInterface {
     private ActivityDao activityDao;
+    private LiveData<List<Activity>> undoneActivity;
 
     @Inject
     public ActivityRepository(ActivityDao activityDao) {
         this.activityDao = activityDao;
+        this.undoneActivity = activityDao.getAllUndoneActivity();
     }
 
     public void insertActivity(String title, String description, long date) {
@@ -40,9 +44,46 @@ public class ActivityRepository implements ActivityRepositoryInterface {
         }
     }
 
-    public List<Activity> getAllUndoneActivity() {return activityDao.getAllUndoneActivity();}
+    public LiveData<List<Activity>> getAllUndoneActivity() {
+        return undoneActivity;
+    }
 
-    public List<Activity> getTodayActivity() {
+//    public LiveData<List<Activity>> getAllUndoneActivityAsync() {
+//        return activityDao.getAllUndoneActivity();
+//        return new GetAllUndoneActivityAsyncTask(activityDao).execute();
+//        Log.d("Tes", "masukget");
+//        GetAllUndoneActivityAsyncTask task = new GetAllUndoneActivityAsyncTask(activityDao);
+//        task.delegate = this;
+//        task.execute();
+//        Log.d("Tes", "abis execute");
+//        return undoneActivity;
+//        new GetAllUndoneActivityAsyncTask(activityDao).execute();
+//    }
+
+//    private static class GetAllUndoneActivityAsyncTask extends AsyncTask<Void, Void, LiveData<List<Activity>>> {
+//        private ActivityDao activityDao;
+//        private ActivityRepository delegate = null;
+//
+//        private GetAllUndoneActivityAsyncTask(ActivityDao activityDao) {
+//            this.activityDao = activityDao;
+//        }
+//
+//        @Override
+//        protected LiveData<List<Activity>> doInBackground(Void... voids) {
+//            return activityDao.getAllUndoneActivity();
+//        }
+//
+//        @Override
+//        protected void onPostExecute(LiveData<List<Activity>> listActivity) {
+//           delegate.asyncUndoneActivityFinished(listActivity);
+//        }
+//    }
+
+//    private void asyncUndoneActivityFinished(LiveData<List<Activity>> results) {
+//        undoneActivity.setValue(results.getValue());
+//    }
+
+    public LiveData<List<Activity>> getTodayActivity() {
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);

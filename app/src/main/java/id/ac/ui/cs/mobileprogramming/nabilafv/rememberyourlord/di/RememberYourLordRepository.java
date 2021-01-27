@@ -6,8 +6,6 @@ import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ApplicationComponent;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.ActivityRepository;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.ActivityRepositoryInterface;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.QuoteRepository;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.QuoteRepositoryInterface;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.WeatherRepository;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository.WeatherRepositoryInterface;
 
@@ -20,7 +18,4 @@ interface RememberYourLordRepository {
 
     @Binds
     WeatherRepositoryInterface bindWeatherRepository(WeatherRepository weatherRepository);
-
-    @Binds
-    QuoteRepositoryInterface bindQuoteRepository(QuoteRepository quoteRepository);
 }

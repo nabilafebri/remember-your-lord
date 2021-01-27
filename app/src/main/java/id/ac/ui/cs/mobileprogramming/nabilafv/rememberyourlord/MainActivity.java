@@ -6,12 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        actListViewModel = ViewModelProviders.of(this).get(ActListViewModel.class);
+        actListViewModel = new ViewModelProvider(this).get(ActListViewModel.class);
         actListViewModel.getSelectedActivity().observe(this, item -> {
             if (findViewById(R.id.fragment_activity_detail) == null) {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

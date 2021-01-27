@@ -6,7 +6,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,18 +27,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.text.format.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.MainActivity;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.R;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.Activity;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.utils.State;
 
 @AndroidEntryPoint
@@ -64,7 +60,8 @@ public class AddActFragment extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        addActViewModel = ViewModelProviders.of(this).get(AddActViewModel.class);
+
+        addActViewModel = new ViewModelProvider(requireActivity()).get(AddActViewModel.class);
 
         editTextTitle = view.findViewById(R.id.add_act_title);
         editTextDesc = view.findViewById(R.id.add_act_desc);

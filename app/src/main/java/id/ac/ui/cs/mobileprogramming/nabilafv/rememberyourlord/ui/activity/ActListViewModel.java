@@ -1,5 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.activity;
 
+import android.util.Log;
+
 import androidx.hilt.lifecycle.ViewModelInject;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -23,14 +25,13 @@ public class ActListViewModel extends ViewModel {
         getAllUndoneActivityThread();
     }
 
-    public ActListViewModel(){}
-
     private void getAllUndoneActivityThread() {
         new Thread(new Runnable() {
             public void run() {
                 allUndoneActivity.postValue(new State<List<Activity>>().loading());
-                List<Activity> undoneActivity = activityRepository.getAllUndoneActivity();
-                allUndoneActivity.postValue(new State<List<Activity>>().success(undoneActivity));
+                LiveData<List<Activity>> undoneActivity = activityRepository.getAllUndoneActivity();
+                allUndoneActivity.postValue(new State<List<Activity>>().success(undoneActivity.getValue()));
+                Log.d("tes", "udah keambil");
             }
         }).start();
     }

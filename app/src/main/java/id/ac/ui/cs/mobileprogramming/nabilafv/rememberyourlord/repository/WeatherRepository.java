@@ -3,6 +3,8 @@ package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.repository;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -23,7 +25,7 @@ public class WeatherRepository implements WeatherRepositoryInterface {
         this.apiHelper = apiHelper;
     }
 
-    public Response<WeatherResponse> getWeather(double lat, double lon) {
+    public LiveData<Response<WeatherResponse>> getWeather(double lat, double lon) {
         Log.d("tees","masuk repo weather");
         return apiHelper.getWeather(lat, lon);
     }

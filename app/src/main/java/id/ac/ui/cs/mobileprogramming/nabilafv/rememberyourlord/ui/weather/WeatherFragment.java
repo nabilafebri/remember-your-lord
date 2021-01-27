@@ -20,18 +20,14 @@ import androidx.annotation.Nullable;
 import androidx.core.content.PermissionChecker;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.R;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.WeatherResponse;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.faves.FavesViewModel;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.utils.State;
 
 @AndroidEntryPoint
@@ -53,7 +49,8 @@ public class WeatherFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        weatherViewModel = ViewModelProviders.of(this).get(WeatherViewModel.class);
+
+        weatherViewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
         textViewTitle = view.findViewById(R.id.weather_title);
         textViewWarning = view.findViewById(R.id.weather_warning);

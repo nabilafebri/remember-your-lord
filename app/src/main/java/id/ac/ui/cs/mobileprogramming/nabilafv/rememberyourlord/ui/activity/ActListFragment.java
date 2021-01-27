@@ -1,6 +1,7 @@
 package id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.ui.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,14 +40,19 @@ public class ActListFragment extends Fragment implements
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        actListViewModel = ViewModelProviders.of(this).get(ActListViewModel.class);
+        actListViewModel = new ViewModelProvider(requireActivity()).get(ActListViewModel.class);
 
         ActListAdapter adapter = new ActListAdapter(this, this);
         actListViewModel.getAllUndoneActivity().observe(getViewLifecycleOwner(), activities -> {
             if (activities instanceof State.Success) {
                 hideLoading();
+                if(((State.Success) activities).data == null) {
+                    Log.d("Tes", "datanya null");
+                }
                 if (((State.Success) activities).data != null) {
+                    Log.d("Tes", "datanya nggak null");
                     adapter.setActivities((List<Activity>) ((State.Success) activities).data);
+                    Log.d("Tes", "adapter ke set");
                 }
             } else if (activities instanceof State.Loading) {
                 showLoading();

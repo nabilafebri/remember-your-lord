@@ -19,8 +19,8 @@ public interface ActivityDao {
     void updateActivity(String idAct);
 
     @Query("SELECT * FROM activity WHERE is_done=0 AND date BETWEEN :startTime AND :endTime")
-    List<Activity> getTodayActivity(Long startTime, Long endTime);
+    LiveData<List<Activity>> getTodayActivity(Long startTime, Long endTime);
 
     @Query("SELECT * FROM activity WHERE is_done=0")
-    List<Activity> getAllUndoneActivity();
+    LiveData<List<Activity>> getAllUndoneActivity();
 }

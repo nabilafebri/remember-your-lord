@@ -19,8 +19,8 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.api.ApiHelper;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.api.ApiHelperInterface;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.api.ApiService;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.dao.ActivityDao;
-import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.dao.QuoteDao;
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.dao.WeatherDao;
+import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.db.RememberYourLordDatabase;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -83,6 +83,8 @@ public class ApplicationModule {
                 appContext,
                 RememberYourLordDatabase.class,
                 "ryl-db")
+                .fallbackToDestructiveMigration()
+                .allowMainThreadQueries()
                 .build();
     }
 
@@ -96,11 +98,5 @@ public class ApplicationModule {
     @Provides
     public WeatherDao provideWeatherDao(RememberYourLordDatabase db) {
         return db.weatherDao();
-    }
-
-    @Singleton
-    @Provides
-    public QuoteDao provideQuoteDao(RememberYourLordDatabase db) {
-        return db.quoteDao();
     }
 }

@@ -24,8 +24,6 @@ public class WeatherViewModel extends ViewModel {
         this.weatherResponse.postValue(new State<WeatherResponse>().init());
     }
 
-    public WeatherViewModel() {}
-
     public LiveData<State<WeatherResponse>> getWeatherResponse() {
         return weatherResponse;
     }
@@ -43,10 +41,10 @@ public class WeatherViewModel extends ViewModel {
             public void run() {
                 weatherResponse.postValue(new State<WeatherResponse>().loading());
 
-                Response<WeatherResponse> response = weatherRepository.getWeather(lat, lon);
+                LiveData<Response<WeatherResponse>> response = weatherRepository.getWeather(lat, lon);
                 if (response != null) {
-                    if (response.isSuccessful()) {
-                        weatherResponse.postValue(new State<WeatherResponse>().success(response.body()));
+                    if (response.getValue().isSuccessful()) {
+                        weatherResponse.postValue(new State<WeatherResponse>().success(response.getValue().body()));
                     }
                 }
             }
