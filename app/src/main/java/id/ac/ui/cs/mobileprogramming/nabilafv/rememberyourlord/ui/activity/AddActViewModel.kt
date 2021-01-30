@@ -23,10 +23,6 @@ class AddActViewModel @Inject constructor(private val activityRepository: Activi
         return activity
     }
 
-    fun getIsInsert(): LiveData<Boolean> {
-        return isInsert
-    }
-
     fun getIsDatePicked(): LiveData<Boolean> {
         return isDatePicked
     }
@@ -37,18 +33,18 @@ class AddActViewModel @Inject constructor(private val activityRepository: Activi
 
     fun addActivity(title: String, description: String, date: Long) {
         isInsert.value = true
-        activity.setValue(State<Activity>().loading())
+        activity.value = State<Activity>().loading()
         viewModelScope.launch(Dispatchers.IO) {
             activityRepository.insertActivity(title, description, date)
         }
     }
 
     fun finishAddingToCalendar() {
-        activity.setValue(State<Activity>().success(null))
+        activity.value = State<Activity>().success(null)
     }
 
     init {
-        activity.setValue(State<Activity>().init())
+        activity.value = State<Activity>().init()
         isInsert.value = false
         isDatePicked.value = false
     }

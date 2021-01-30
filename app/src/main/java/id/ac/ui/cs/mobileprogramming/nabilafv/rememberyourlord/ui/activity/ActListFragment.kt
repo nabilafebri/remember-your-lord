@@ -41,11 +41,11 @@ class ActListFragment : Fragment(), RecyclerViewOnItemDone, RecyclerViewOnItemSe
         super.onViewCreated(view, savedInstanceState)
         actListViewModel = ViewModelProvider(requireActivity()).get(ActListViewModel::class.java)
         val adapter = ActListAdapter(this, this)
-        actListViewModel.getAllUndoneActivity().observe(viewLifecycleOwner, { activities ->
+        actListViewModel.getAllUndoneActivity().observe(viewLifecycleOwner) { activities ->
             if (activities is State.Success) {
                 hideLoading()
                 if (activities.data != null) {
-                    adapter.setActivities(activities.data)
+                    adapter.setActivities(activities.data as List<Activity>)
                 }
             } else if (activities is State.Loading) {
                 showLoading()
@@ -54,7 +54,7 @@ class ActListFragment : Fragment(), RecyclerViewOnItemDone, RecyclerViewOnItemSe
             } else if (activities is State.Initialize) {
                 hideLoading()
             }
-        })
+        }
 
         binding.recyclerviewAct.layoutManager = LinearLayoutManager(context)
         binding.recyclerviewAct.setHasFixedSize(true)

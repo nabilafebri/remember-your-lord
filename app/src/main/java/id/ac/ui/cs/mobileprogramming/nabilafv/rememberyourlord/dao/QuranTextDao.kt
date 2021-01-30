@@ -8,8 +8,8 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.QuranText
 @Dao
 interface QuranTextDao {
     @Query("SELECT * FROM quran_text")
-    fun fetchAllQuranTexts(): LiveData<List<QuranText>>
+    fun fetchAllQuranTexts(): List<QuranText>
 
     @Query("SELECT * FROM quran_text WHERE ID = :id")
-    fun getQuranText(id: Int): LiveData<QuranText>
+    fun getQuranText(id: Int): QuranText
 }

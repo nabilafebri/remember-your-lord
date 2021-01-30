@@ -16,8 +16,8 @@ interface ActivityDao {
     suspend fun updateActivity(idAct: String)
 
     @Query("SELECT * FROM activity WHERE is_done=0 AND date BETWEEN :startTime AND :endTime")
-    fun getTodayActivity(startTime: Long, endTime: Long): LiveData<List<Activity>>
+    fun getTodayActivity(startTime: Long, endTime: Long): List<Activity?>
 
     @Query("SELECT * FROM activity WHERE is_done=0")
-    fun getAllUndoneActivity(): LiveData<List<Activity>>
+    fun getAllUndoneActivity(): List<Activity?>
 }

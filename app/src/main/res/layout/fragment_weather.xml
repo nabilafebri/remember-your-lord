@@ -8,32 +8,34 @@
 
     <TextView
         android:id="@+id/weather_title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:text="@string/title_weather" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/title_weather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/weather_warning"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="@id/weather_title"
         app:layout_constraintTop_toBottomOf="@+id/weather_title" />
 
     <TextView
         android:id="@+id/weather_location"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="@id/weather_title"
         app:layout_constraintTop_toBottomOf="@+id/weather_title" />
 
     <TextView
         android:id="@+id/weather_temperature"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
         app:layout_constraintStart_toStartOf="@id/weather_location"
         app:layout_constraintTop_toBottomOf="@+id/weather_location" />
 

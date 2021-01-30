@@ -24,4 +24,4 @@ data class WeatherDetail(
 
 data class Wind(val speed: Double?, val deg: Double?)
 
-data class Clouds(val all: Double)
+data class Clouds(val all: Double?)

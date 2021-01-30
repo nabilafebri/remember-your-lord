@@ -4,6 +4,6 @@ import androidx.lifecycle.LiveData
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.QuranText
 
 interface QuranTextRepositoryInterface {
-    fun getQuranText(id: Int): LiveData<QuranText>
-    fun getAllQuranTexts(): LiveData<List<QuranText>>
+    fun getQuranText(id: Int): QuranText
+    fun getAllQuranTexts(): List<QuranText>
 }

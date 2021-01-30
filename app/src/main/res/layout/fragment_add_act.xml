@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:hint="@string/act_title"></EditText>
+            android:hint="@string/act_title">
+        </EditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -36,14 +37,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/act_desc"
-            android:inputType="textMultiLine"></EditText>
+            android:inputType="textMultiLine">
+        </EditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/in_add_act_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/act_date"

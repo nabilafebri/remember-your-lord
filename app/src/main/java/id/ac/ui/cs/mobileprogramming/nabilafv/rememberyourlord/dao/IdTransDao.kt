@@ -8,8 +8,8 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.IdTrans
 @Dao
 interface IdTransDao {
     @Query("SELECT * FROM id_trans")
-    fun fetchAllIdTrans(): LiveData<List<IdTrans>>
+    fun fetchAllIdTrans(): List<IdTrans>
 
     @Query("SELECT * FROM id_trans WHERE ID = :id")
-    fun getIdTrans(id: Int): LiveData<IdTrans>
+    fun getIdTrans(id: Int): IdTrans
 }

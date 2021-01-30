@@ -21,14 +21,14 @@ class QuranTextViewModel @Inject constructor(private val quranTextRepository: Qu
 
     fun getQuranText(id: Int): LiveData<QuranText> {
         viewModelScope.launch(Dispatchers.IO) {
-            _selectedQuranText.postValue(quranTextRepository.getQuranText(id).value)
+            _selectedQuranText.postValue(quranTextRepository.getQuranText(id))
         }
         return _selectedQuranText
     }
 
     private fun getAllQuranTexts() {
         viewModelScope.launch(Dispatchers.IO) {
-            _allQuranTexts.postValue(quranTextRepository.getAllQuranTexts().value)
+            _allQuranTexts.postValue(quranTextRepository.getAllQuranTexts())
         }
     }
 

@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class IdTransRepository @Inject constructor(private val idTransDao: IdTransDao) :
     IdTransRepositoryInterface {
-    override fun getIdTrans(id: Int): LiveData<IdTrans> {
+    override fun getIdTrans(id: Int): IdTrans {
         return idTransDao.getIdTrans(id)
     }
 
-    override fun getAllIdTrans(): LiveData<List<IdTrans>> {
+    override fun getAllIdTrans(): List<IdTrans> {
         return idTransDao.fetchAllIdTrans()
     }
 }

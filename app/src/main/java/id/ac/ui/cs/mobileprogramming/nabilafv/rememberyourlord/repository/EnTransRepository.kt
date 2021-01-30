@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class EnTransRepository @Inject constructor(private val enTransDao: EnTransDao) :
     EnTransRepositoryInterface {
-    override fun getEnTrans(id: Int): LiveData<EnTrans> {
+    override fun getEnTrans(id: Int): EnTrans {
         return enTransDao.getEnTrans(id)
     }
 
-    override fun getAllEnTrans(): LiveData<List<EnTrans>> {
+    override fun getAllEnTrans(): List<EnTrans> {
         return enTransDao.fetchAllEnTrans()
     }
 }

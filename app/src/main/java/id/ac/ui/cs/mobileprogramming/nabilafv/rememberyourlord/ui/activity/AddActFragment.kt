@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts.RequestMultiplePermissions
 import androidx.core.content.PermissionChecker
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +57,7 @@ class AddActFragment : Fragment(), OnDateSetListener, OnTimeSetListener {
         addActViewModel = ViewModelProvider(requireActivity()).get(AddActViewModel::class.java)
 
         addActViewModel.getIsDatePicked().observe(viewLifecycleOwner, { activity ->
-            binding.btnAddAct.visibility = View.VISIBLE
+            binding.btnAddAct.isVisible = activity
             if (activity) {
                 binding.inAddActDate.text = SimpleDateFormat.getDateTimeInstance().format(
                     Date(calendar.timeInMillis)
@@ -119,8 +120,8 @@ class AddActFragment : Fragment(), OnDateSetListener, OnTimeSetListener {
     }
 
     fun submitAct(context: Context) {
-        val title = binding.addActTitle.text.trim().toString()
-        val desc = binding.addActDesc.text.trim().toString()
+        val title = binding.addActTitle.text?.trim().toString()
+        val desc = binding.addActDesc.text?.trim().toString()
         val date = calendar.timeInMillis
         addActViewModel.addActivity(title, desc, date)
         addActToCal(context, title, desc, date)
@@ -239,23 +240,25 @@ class AddActFragment : Fragment(), OnDateSetListener, OnTimeSetListener {
     }
 
     private fun checkCalendarPermissonAndAddActToCal(context: Context) {
-        if ((PermissionChecker.checkSelfPermission(
-                context, Manifest.permission.READ_CALENDAR
-            )
+        when {
+            ((PermissionChecker.checkSelfPermission(context, Manifest.permission.READ_CALENDAR)
                     == PermissionChecker.PERMISSION_GRANTED) &&
-            (PermissionChecker.checkSelfPermission(
-                context, Manifest.permission.WRITE_CALENDAR
-            )
-                    == PermissionChecker.PERMISSION_GRANTED)
-        ) {
-            submitAct(context)
-        } else if (shouldShowRequestPermissionRationale("Want to add activity to your calender")) {
-        } else {
-            val calendarPermissions = arrayOf(
-                Manifest.permission.READ_CALENDAR,
-                Manifest.permission.WRITE_CALENDAR
-            )
-            requestPermissions.launch(calendarPermissions)
+                    (PermissionChecker.checkSelfPermission(
+                        context, Manifest.permission.WRITE_CALENDAR
+                    )
+                            == PermissionChecker.PERMISSION_GRANTED)) -> {
+                submitAct(context)
+            }
+            shouldShowRequestPermissionRationale("Want to add activity to your calender")
+            -> {
+            }
+            else -> {
+                val calendarPermissions = arrayOf(
+                    Manifest.permission.READ_CALENDAR,
+                    Manifest.permission.WRITE_CALENDAR
+                )
+                requestPermissions.launch(calendarPermissions)
+            }
         }
     }
 

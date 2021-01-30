@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dagger.hilt.android.AndroidEntryPoint
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.databinding.ActivityMainBinding
 import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.receiver.NotificationReceiver
@@ -29,21 +28,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, AddActActivity::class.java))
         }
         actListViewModel = ViewModelProvider(this).get(ActListViewModel::class.java)
-        actListViewModel.getSelectedActivity().observe(this) { item ->
-            if (findViewById<View?>(R.id.fragment_activity_detail) == null) {
+        actListViewModel.getSelectedActivity().observe(this, { _ ->
+            if (findViewById<View>(R.id.fragment_activity_detail) == null) {
                 val fragmentTransaction = supportFragmentManager.beginTransaction()
                 fragmentTransaction.replace(R.id.layout_main_activity, ActDetailFragment())
                 fragmentTransaction.addToBackStack(null)
                 fragmentTransaction.commit()
             }
-        }
+        })
         setupDailyNotif()
     }
 
-    // at 9 am
+    // at 9.00 am
     private fun setupDailyNotif() {
         val calendar = Calendar.getInstance()
-        calendar[Calendar.HOUR_OF_DAY] = 10
+        calendar[Calendar.HOUR_OF_DAY] = 8
         calendar[Calendar.MINUTE] = 0
         calendar[Calendar.SECOND] = 0
         val intent = Intent(applicationContext, NotificationReceiver::class.java)

@@ -8,8 +8,8 @@ import id.ac.ui.cs.mobileprogramming.nabilafv.rememberyourlord.model.EnTrans
 @Dao
 interface EnTransDao {
     @Query("SELECT * FROM en_trans")
-    fun fetchAllEnTrans(): LiveData<List<EnTrans>>
+    fun fetchAllEnTrans(): List<EnTrans>
 
     @Query("SELECT * FROM en_trans WHERE ID = :id")
-    fun getEnTrans(id: Int): LiveData<EnTrans>
+    fun getEnTrans(id: Int): EnTrans
 }

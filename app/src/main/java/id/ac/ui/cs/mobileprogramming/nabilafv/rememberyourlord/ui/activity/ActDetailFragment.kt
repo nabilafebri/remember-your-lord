@@ -33,12 +33,12 @@ class ActDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         actListViewModel = ViewModelProvider(requireActivity()).get(ActListViewModel::class.java)
-        actListViewModel.getSelectedActivity().observe(viewLifecycleOwner, { activity ->
+        actListViewModel.getSelectedActivity().observe(viewLifecycleOwner) { activity ->
             binding.actDetailTitle.text = activity.title
             binding.actDetailDesc.text = activity.description
             binding.actDetailDate.text = SimpleDateFormat.getDateTimeInstance().format(
                 Date(activity.date)
             )
-        })
+        }
     }
 }

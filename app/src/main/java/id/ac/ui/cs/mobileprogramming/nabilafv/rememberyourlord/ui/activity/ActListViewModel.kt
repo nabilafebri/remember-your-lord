@@ -16,21 +16,21 @@ import javax.inject.Inject
 class ActListViewModel @Inject constructor(private val activityRepository: ActivityRepository) :
     ViewModel() {
     private val selectedActivity = MutableLiveData<Activity>()
-    private val allUndoneActivity = MutableLiveData<State<List<Activity>>>()
+    private val allUndoneActivity = MutableLiveData<State<List<Activity?>>>()
 
     fun getSelectedActivity(): LiveData<Activity> {
         return selectedActivity
     }
 
-    fun getAllUndoneActivity(): LiveData<State<List<Activity>>> {
+    fun getAllUndoneActivity(): LiveData<State<List<Activity?>>> {
         return allUndoneActivity
     }
 
     private fun getAllUndoneActivityAsync() {
         viewModelScope.launch(Dispatchers.IO) {
-            allUndoneActivity.postValue(State<List<Activity>>().loading())
+            allUndoneActivity.postValue(State<List<Activity?>>().loading())
             val undoneActivity = activityRepository.getAllUndoneActivity()
-            allUndoneActivity.postValue(State<List<Activity>>().success(undoneActivity.value))
+            allUndoneActivity.postValue(State<List<Activity?>>().success(undoneActivity))
         }
     }
 
@@ -45,7 +45,7 @@ class ActListViewModel @Inject constructor(private val activityRepository: Activ
     }
 
     init {
-        allUndoneActivity.postValue(State<List<Activity>>().init())
+        allUndoneActivity.postValue(State<List<Activity?>>().init())
         getAllUndoneActivityAsync()
     }
 }

@@ -7,11 +7,11 @@ import javax.inject.Inject
 
 class QuranTextRepository @Inject constructor(private val quranTextDao: QuranTextDao) :
     QuranTextRepositoryInterface {
-    override fun getQuranText(id: Int): LiveData<QuranText> {
+    override fun getQuranText(id: Int): QuranText {
         return quranTextDao.getQuranText(id)
     }
 
-    override fun getAllQuranTexts(): LiveData<List<QuranText>> {
+    override fun getAllQuranTexts(): List<QuranText> {
         return quranTextDao.fetchAllQuranTexts()
     }
 }

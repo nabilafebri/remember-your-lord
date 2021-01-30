@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "activity")
 data class Activity(
     @PrimaryKey @ColumnInfo(name = "id") val id: String,
-    @ColumnInfo(name = "title") var title: String,
-    @ColumnInfo(name = "description") var description: String,
-    @ColumnInfo(name = "is_done") var isDone: Boolean,
-    @ColumnInfo(name = "date") var date: Long
+    @ColumnInfo(name = "title") val title: String,
+    @ColumnInfo(name = "description") val description: String,
+    @ColumnInfo(name = "is_done") val isDone: Boolean,
+    @ColumnInfo(name = "date") val date: Long
 )

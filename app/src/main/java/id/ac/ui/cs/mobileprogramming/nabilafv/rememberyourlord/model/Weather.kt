@@ -10,5 +10,5 @@ data class Weather(
     @ColumnInfo(name = "lat") val lat: Double,
     @ColumnInfo(name = "lon") val lon: Double,
     @ColumnInfo(name = "temp") val temp: Double,
-    @ColumnInfo(name = "name") val location: String
+    @ColumnInfo(name = "name") val location: String?
 )

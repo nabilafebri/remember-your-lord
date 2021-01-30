@@ -19,7 +19,7 @@ class ActivityRepository @Inject constructor(private val activityDao: ActivityDa
         activityDao.updateActivity(idAct)
     }
 
-    override fun getTodayActivity(): LiveData<List<Activity>> {
+    override fun getTodayActivity(): List<Activity?> {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
         val month = calendar.get(Calendar.MONTH)
@@ -31,7 +31,7 @@ class ActivityRepository @Inject constructor(private val activityDao: ActivityDa
         return activityDao.getTodayActivity(todayEpoch, tomorrowEpoch)
     }
 
-    override fun getAllUndoneActivity(): LiveData<List<Activity>> {
+    override fun getAllUndoneActivity(): List<Activity?> {
         return activityDao.getAllUndoneActivity()
     }
 }

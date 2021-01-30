@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:scrollbars="none"
     app:layout_constraintBottom_toTopOf="@+id/nav_view"
-    android:paddingBottom="56dp"
-    tools:context=".ui.home.HomeFragment">
+    android:paddingBottom="56dp">
 
     <LinearLayout
         android:layout_width="match_parent"

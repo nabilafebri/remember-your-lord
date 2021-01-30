@@ -15,7 +15,7 @@ class ActListAdapter(
     private val onItemSelected: RecyclerViewOnItemSelected,
     private val onItemDone: RecyclerViewOnItemDone
 ) : RecyclerView.Adapter<ActListAdapter.ActListViewHolder>() {
-    private var activities: List<Activity> = emptyList<Activity>()
+    private var activities = emptyList<Activity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ActListViewHolder {
         val binding = ViewholderActBinding.inflate(
